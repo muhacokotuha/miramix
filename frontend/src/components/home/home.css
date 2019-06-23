@@ -1,0 +1,11 @@
+.home__vcontainer {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.home__vcontainer__video {
+  height: auto;
+  width: 100%;
+}

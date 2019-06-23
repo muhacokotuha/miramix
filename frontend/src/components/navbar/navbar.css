@@ -1,0 +1,186 @@
+@font-face {
+  font-family: "Single Product Webicons Regular";
+  src: url("//cdn.shopify.com/s/files/1/0561/8365/t/19/assets/singleproductwebicons-regular.eot?663");
+  src: url("//cdn.shopify.com/s/files/1/0561/8365/t/19/assets/singleproductwebicons-regular.eot?%23iefix&663")
+      format("embedded-opentype"),
+    url("//cdn.shopify.com/s/files/1/0561/8365/t/19/assets/singleproductwebicons-regular.woff?663")
+      format("woff"),
+    url("//cdn.shopify.com/s/files/1/0561/8365/t/19/assets/singleproductwebicons-regular.ttf?663")
+      format("truetype"),
+    url("//cdn.shopify.com/s/files/1/0561/8365/t/19/assets/singleproductwebicons-regular.svg%23singleproduct_web_iconsregular?663")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media only screen and (max-width: 850px) {
+  .navbar .navbar__container__menu.navbar__container__menu__website {
+    order: 3;
+  }
+
+  .navbar__container__menu__ul .navbar__container__menu__website__ul__li {
+    display: block;
+    padding-left: 0;
+    line-height: normal;
+    font-size: 22px;
+  }
+  .navbar__container__menu__ul
+    .navbar__container__menu__website__ul__li__dropdown {
+    display: block;
+    padding-left: 0;
+    line-height: normal;
+    font-size: 22px;
+  }
+  .navbar__container__menu__website__ul__li__dropdown
+    .navbar__container__menu__website__ul__li__dropdown-content {
+    display: block;
+    position: relative;
+    min-width: unset;
+    background-color: unset;
+    border-top: 0;
+    font-size: 16px;
+    padding: 0 0 0 20px;
+    margin: 0;
+  }
+
+  .navbar .navbar__container__menu {
+    order: 1;
+  }
+
+  .navbar .mobile-menu {
+    order: 2;
+  }
+
+  a.mobile-menu {
+    display: inline-block;
+  }
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  max-width: 1500px;
+  height: 150px;
+  z-index: 1;
+  margin: 0 auto;
+  padding: 0 30px;
+  line-height: 150px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.navbar__logo {
+  height: 120px;
+  padding: 15px;
+  margin-right: auto;
+}
+
+.navbar__container__menu {
+  order: 2;
+  height: 100%;
+  line-height: 150px;
+  color: white;
+}
+.navbar__container__menu__website {
+  order: 1;
+  font-family: "Exo 2", sans-serif;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.navbar__container__menu__ul {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0 50px 0 0;
+  vertical-align: middle;
+}
+
+.navbar__container__menu__ul > * + * {
+  padding-left: 30px;
+}
+
+.navbar__container__menu__ul__li {
+  display: inline-block;
+}
+.navbar__container__menu__website__ul__li,
+.navbar__container__menu__website__ul__li__dropdown {
+  display: inline-block;
+}
+
+.navbar__container__menu__ul__li:hover {
+  color: lightgreen;
+}
+.navbar__container__menu__website__ul__li:hover,
+.navbar__container__menu__website__ul__li__dropdown:hover {
+  color: lightgreen;
+}
+
+.navbar__container__menu__website__ul__li__dropdown:hover
+  .navbar__container__menu__website__ul__li__dropdown-content {
+  display: block;
+}
+
+.navbar__container__menu__website__ul__li__dropdown-content {
+  display: none;
+  line-height: normal;
+  min-height: 30px;
+  min-width: 250px;
+  background-color: black;
+  border-top: 3px solid lightgreen;
+  font-size: 20px;
+  padding: 10px;
+  margin-top: -35px;
+  position: absolute;
+}
+
+.navbar__container__menu__website__ul__li__dropdown-content__a {
+  text-decoration: none;
+  text-transform: none;
+  text-align: left;
+  color: white;
+}
+
+.login-icon {
+  font-family: "Single Product Webicons Regular";
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.login-icon::before {
+  content: "\E004";
+}
+.cart-icon {
+  font-family: "Single Product Webicons Regular";
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.cart-icon::before {
+  content: "\E002";
+}
+.search-icon {
+  font-family: "Single Product Webicons Regular";
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.search-icon::before {
+  content: "\E003";
+}
+
+.mobile-menu {
+  order: 3;
+  display: none;
+  color: white;
+  font-size: 46px;
+  vertical-align: middle;
+  margin-right: 50px;
+}
