@@ -2,12 +2,45 @@ import React from "react";
 import "./navbar.css";
 
 class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      websiteMenuCssClass:
+        "navbar__main-menu__container navbar__main-menu__container__website",
+      slideInMenu: false
+    };
+  }
+
+  onClickOpenSlideInMenu = e => {
+    e.preventDefault();
+    this.setState({ slideInMenu: true });
+  };
+  onClickCloseSlideInMenu = e => {
+    e.preventDefault();
+    this.setState({ slideInMenu: false });
+  };
+
   render() {
     return (
       <div className="navbar">
         <div className="navbar__main-menu">
           <img className="navbar__main-menu__logo" src="logo.jpg" alt="logo" />
-          <div className="navbar__main-menu__container navbar__main-menu__container__website">
+          <div
+            className={
+              this.state.slideInMenu
+                ? this.state.websiteMenuCssClass +
+                  " navbar__main-menu__container__website--slide-in"
+                : this.state.websiteMenuCssClass
+            }
+          >
+            {this.state.slideInMenu ? (
+              <p
+                className="cross-icon"
+                onClick={this.onClickCloseSlideInMenu}
+              />
+            ) : (
+              ""
+            )}
             <ul className="navbar__main-menu__container__ul">
               <li className="navbar__main-menu__container__website__ul__li__dropdown">
                 Shop
@@ -40,7 +73,7 @@ class Navbar extends React.Component {
           <a
             className="navbar__hamburger-menu__a"
             href="javascript:void(0);"
-            onclick="myFunction()"
+            onClick={this.onClickOpenSlideInMenu}
           >
             <i className="fa fa-bars" />
           </a>

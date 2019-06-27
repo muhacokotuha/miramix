@@ -18,6 +18,7 @@
     margin: 0 !important;
     width: 100vw !important;
     height: fit-content !important;
+    background-color: black !important;
   }
   .navbar .navbar__main-menu {
     flex-flow: column;
@@ -32,6 +33,7 @@
     width: 50vw;
     height: 100vh;
     background-color: dimgrey;
+    padding-top: 20px;
     transform: translateX(100vw);
   }
 
@@ -99,6 +101,10 @@
   .navbar__hamburger-menu .navbar__hamburger-menu__a {
     font-size: 5vw;
   }
+
+  .navbar__main-menu__container.navbar__main-menu__container__website.navbar__main-menu__container__website--slide-in {
+    transform: translateX(50vw);
+  }
 }
 
 .navbar {
@@ -112,7 +118,7 @@
   height: 150px;
   z-index: 1;
   margin: 0 auto;
-  padding: 20px 30px 0;
+  padding: 20px 30px;
   display: flex;
 }
 
@@ -175,7 +181,6 @@
   border-top: 3px solid lightgreen;
   font-size: 20px;
   padding: 10px;
-  margin-top: -35px;
   position: absolute;
 }
 
@@ -215,6 +220,19 @@
 }
 .search-icon::before {
   content: "\E003";
+}
+.cross-icon {
+  font-family: "Single Product Webicons Regular";
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0 50px 0 0;
+  text-align: end;
+}
+.cross-icon::before {
+  content: "\E005";
 }
 
 .navbar__hamburger-menu {
