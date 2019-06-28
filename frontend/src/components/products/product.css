@@ -1,0 +1,7 @@
+.item {
+  display: flex;
+}
+
+.item__image {
+  height: 360px;
+}
