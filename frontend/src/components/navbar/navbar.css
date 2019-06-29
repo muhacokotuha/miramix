@@ -14,10 +14,11 @@
 }
 
 @media only screen and (max-width: 850px) {
-  .navbar {
-    position: relative !important;
-    height: fit-content !important;
-    background-color: black !important;
+  div.navbar {
+    position: relative;
+    height: fit-content;
+    background-color: black;
+    padding: 20px 0;
   }
   .navbar .navbar__main-menu {
     flex-flow: column;
