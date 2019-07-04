@@ -20,6 +20,11 @@ class Navbar extends React.Component {
     this.setState({ slideInMenu: false });
   };
 
+  onClickChooseCategory = e => {
+    e.preventDefault();
+    console.log(e.target.text());
+  };
+
   render() {
     return (
       <div className="navbar">
@@ -45,12 +50,12 @@ class Navbar extends React.Component {
               <li className="navbar__main-menu__container__website__ul__li__dropdown">
                 Shop
                 <div className="navbar__main-menu__container__website__ul__li__dropdown-content">
-                  <a
-                    className="navbar__main-menu__container__website__ul__li__dropdown-content__a"
-                    href="#"
+                  <button
+                    className="navbar__main-menu__container__website__ul__li__dropdown-content__button"
+                    onClick={this.onClickChooseCategory}
                   >
                     Bits
-                  </a>
+                  </button>
                 </div>
               </li>
               <li className="navbar__main-menu__container__website__ul__li">

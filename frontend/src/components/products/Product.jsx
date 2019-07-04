@@ -4,7 +4,6 @@ import "./product.css";
 class Product extends React.Component {
   render() {
     let { items } = this.props;
-    console.log(items);
     let { category } = this.props;
     return (
       <div>

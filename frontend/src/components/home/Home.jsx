@@ -5,18 +5,27 @@ import "./home.css";
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.category = "bits";
+    this.category = "";
     this.state = { items: [] };
   }
 
   componentDidMount() {
-    fetch("http://localhost:666/products/bits", { method: "GET" })
-      .then(res => {
-        return res.json();
+    fetch("http://localhost:666/products/categories", {
+      method: "GET"
+    })
+      .then(res => res.json())
+      .then(body => {
+        if (body !== "") {
+          return fetch("http://localhost:666/products/items?category=" + body, {
+            method: "GET"
+          });
+        }
       })
+      .then(res => res.json())
       .then(body => {
         this.setState({ items: body });
       });
+    console.log("DidMount");
   }
 
   render() {

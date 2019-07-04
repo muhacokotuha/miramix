@@ -162,11 +162,19 @@
   position: absolute;
 }
 
-.navbar__main-menu__container__website__ul__li__dropdown-content__a {
+.navbar__main-menu__container__website__ul__li__dropdown-content__button {
   text-decoration: none;
   text-transform: none;
   text-align: left;
   color: white;
+  border: 0;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__main-menu__container__website__ul__li__dropdown-content__button:focus {
+  outline: none;
 }
 
 .login-icon {
