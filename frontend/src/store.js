@@ -3,11 +3,11 @@ import { createStore } from "redux";
 let reducer = (state, action) => {
   switch (action.type) {
     case "AddCategories":
-      console.log("add categories");
       return { ...state, categories: action.categories };
+    case "SetCategory":
+      return { ...state, currentCategory: action.currentCategory };
     case "AddItems":
-      console.log("addItems");
-      return { ...state, items: action.items };
+      return { ...state, currentItems: action.currentItems };
     default:
       return state;
   }
@@ -15,7 +15,7 @@ let reducer = (state, action) => {
 
 let store = createStore(
   reducer,
-  {},
+  { currentItems: [], categories: [], currentCategory: "" },
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

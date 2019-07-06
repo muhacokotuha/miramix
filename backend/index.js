@@ -11,14 +11,25 @@ app.get("/", (req, res) => {
 
 app.get("/products/items", (req, res) => {
   const category = req.query.category;
-  console.log("Category: ", category);
-  fetch("http://localhost:4080/" + category + ".json")
-    .then(res => {
-      return res.json();
-    })
-    .then(body => {
-      res.send(JSON.stringify(body));
-    });
+  if (category === "bits") {
+    console.log("Category: ", category);
+    fetch("http://localhost:4080/" + category + ".json")
+      .then(res => {
+        return res.json();
+      })
+      .then(body => {
+        res.send(JSON.stringify(body));
+      });
+  } else {
+    console.log("Category: ", category);
+    fetch("http://localhost:4080/" + category + ".json")
+      .then(res => {
+        return res.json();
+      })
+      .then(body => {
+        res.send(JSON.stringify(body));
+      });
+  }
 });
 
 app.get("/products/categories", (req, res) => {
@@ -27,6 +38,7 @@ app.get("/products/categories", (req, res) => {
       return res.json();
     })
     .then(body => {
+      console.log("Categories: ", body);
       res.send(JSON.stringify(body));
     });
 });

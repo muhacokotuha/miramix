@@ -4,22 +4,19 @@ import Product from "../products/Product";
 import store from "../../store.js";
 import "./home.css";
 
-class UnconnectedHome extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+class UnConnectedHome extends React.Component {
   componentDidMount() {
     fetch("http://localhost:666/products/categories", {
       method: "GET"
     })
       .then(res => res.json())
       .then(body => {
-        store.dispatch({ type: "AddCategories", categories: body });
-        let category = body[0];
-        if (body !== "") {
+        let categories = body;
+        store.dispatch({ type: "AddCategories", categories: categories });
+        store.dispatch({ type: "SetCategory", currentCategory: categories[0] });
+        if (categories[0] !== "") {
           return fetch(
-            "http://localhost:666/products/items?category=" + category,
+            "http://localhost:666/products/items?category=" + categories[0],
             {
               method: "GET"
             }
@@ -28,15 +25,12 @@ class UnconnectedHome extends React.Component {
       })
       .then(res => res.json())
       .then(body => {
-        store.dispatch({ type: "AddItems", items: body });
+        const items = body;
+        store.dispatch({ type: "AddItems", currentItems: items });
       });
-    console.log("DidMount");
   }
 
   render() {
-    console.log("Render");
-    let items = this.props.items ? this.props.items : [];
-    let categories = this.props.categories ? this.props.categories : "";
     return (
       <div>
         <div className="home__vcontainer">
@@ -44,17 +38,16 @@ class UnconnectedHome extends React.Component {
             <source src="home_video.mp4" type="video/mp4" />
           </video>
         </div>
-        <Product category={categories} items={items} />
+        <Product category={this.props.category} items={this.props.items} />
       </div>
     );
   }
 }
 
 let mapStateToProps = state => {
-  console.log("mapStateToProps");
-  return { categories: state.categories, items: state.items };
+  return { category: state.currentCategory, items: state.currentItems };
 };
 
-let Home = connect(mapStateToProps)(UnconnectedHome);
+let Home = connect(mapStateToProps)(UnConnectedHome);
 
 export default Home;

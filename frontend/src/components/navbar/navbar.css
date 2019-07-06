@@ -163,6 +163,7 @@
 }
 
 .navbar__main-menu__container__website__ul__li__dropdown-content__button {
+  display: block;
   text-decoration: none;
   text-transform: none;
   text-align: left;

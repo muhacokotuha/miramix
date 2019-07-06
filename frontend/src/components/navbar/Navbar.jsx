@@ -1,7 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import "./navbar.css";
+import store from "../../store";
 
-class Navbar extends React.Component {
+class UnConnectedNavbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +24,16 @@ class Navbar extends React.Component {
 
   onClickChooseCategory = e => {
     e.preventDefault();
-    console.log(e.target.text());
+    let category = e.target.innerText;
+    fetch("http://localhost:666/products/items?category=" + category, {
+      method: "GET"
+    })
+      .then(res => res.json())
+      .then(body => {
+        const items = body;
+        store.dispatch({ type: "AddItems", currentItems: items });
+        store.dispatch({ type: "SetCategory", currentCategory: category });
+      });
   };
 
   render() {
@@ -50,12 +61,17 @@ class Navbar extends React.Component {
               <li className="navbar__main-menu__container__website__ul__li__dropdown">
                 Shop
                 <div className="navbar__main-menu__container__website__ul__li__dropdown-content">
-                  <button
-                    className="navbar__main-menu__container__website__ul__li__dropdown-content__button"
-                    onClick={this.onClickChooseCategory}
-                  >
-                    Bits
-                  </button>
+                  {this.props.categories.map((category, index) => {
+                    return (
+                      <button
+                        key={index}
+                        className="navbar__main-menu__container__website__ul__li__dropdown-content__button"
+                        onClick={this.onClickChooseCategory}
+                      >
+                        {category}
+                      </button>
+                    );
+                  })}
                 </div>
               </li>
               <li className="navbar__main-menu__container__website__ul__li">
@@ -87,5 +103,11 @@ class Navbar extends React.Component {
     );
   }
 }
+
+let mapStatetoProps = state => {
+  return { categories: state.categories };
+};
+
+let Navbar = connect(mapStatetoProps)(UnConnectedNavbar);
 
 export default Navbar;
